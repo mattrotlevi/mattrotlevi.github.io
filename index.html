@@ -1,1 +1,284 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Neural Networks</title>
+
+	<link rel="stylesheet" href="style.css">
+<!-- we need some bootstrap amiright? -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+		<div class="container-fluid">
+
+			<br>
+			<div class="jumbotron"><center><h1> Neural Network in JavaScript </h1></center></div>
+
+			<div class="jumbotron">
+
+				<div class="row">
+
+					<div class="col-sm-7">
+						<h5> Hello World! This is a proof-of-concept project to implement a Neural Network entirely in vanilla Javascript. </h5>
+						<br>
+						<p> We will be taking data of flower petal's length in inches, width in inches, and color. With that information, and using our neural network, we will be able to classify the daunted ~mystery flower~ . </p>
+					</div>
+
+					<div class="col-sm-2">
+
+					</div>
+
+					<div class="col-sm-3">
+						<img src="neural_net.jpg" height="200" width ="310">
+					</div>	
+
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col-sm-1"> </div>
+
+				<div class="col-sm-5"> 	
+					<p class="header">Firstly, let's take a look at our data. </p>
+					<p class="header2"> Don't just glance at it. Absorb it and see if you can find the pattern yourself. </p>
+					<br>
+
+					<p id="data"></p> 
+
+				</div>
+
+				<div class="col-sm-1"> </div>
+
+
+				<div class="col-sm-5">
+
+					<p class="header"> Now check out the mystery flower. Any guess on what color this flower might be?</p>
+					<p id="mystery_flower"> </p> 
+
+				</div>
+
+			</div>
+
+			<br>
+			<div class="jumbotron">
+
+				<center><h3> Okay! Let's get into the Neural Network algorithm. </h3></center>
+			</div>
+
+			<div class="card">
+
+				<div class="card-body">
+
+					<div class="row">
+
+						<div class="col-sm-12"> 
+
+							<p> The neural network works much like a person's brain. Exactly how it was modeled. Taking in inputs, the model multiplies them by weights and adds a bias. </p>
+							<p>Consider an example: Your friend is considering going to the movie theater on a given day. In real life there are a great many number of variables to consider, but for this example there is only the genre and the time. </p>
+							<p> Your friend loves science fiction, and prefers to go to the movies at 6pm. However, your friend would rather see a science fiction movie at 9pm than a romcom at 6pm. </p>
+							<p> Therefore, your friend must value the genre more than the time...this make intuitive sense. </p>
+							<p> The beauty of the NN algorithm is that it mimics human thinking by taking those inputs and multiplying them by a fraction, the one with more weight a higher fraction. </p>
+							<p> The equation is as follows: z = w1*x + w2*y + b </p>
+							<p> In order to standardize the output to scale, z goes into an activation function. The sigmoid function 1/(1+e^-x) will squish the output to a value between 0 and 1.</p>
+							<p> The result of the sigmoid function is the prediction. But what to do when the prediction is wrong? The squared error function! Otherwise known as cost = (pred-target)^2 </p>
+							<p>If we want to get improve the prediction to get the cost (error) as close to zero as possible, we will need to take the derivative repeatedly. If we take the derivative, multiply it by our learning rate (.1) and subtract that from the original inputs in a loop, the slope will eventually hit zero!  </p>
+							<strong><p> Our data involves the classification of flowers, so the NN will output a number closer to 1 the more sure it is that the mystery flower is red, and a number closer to 0 the more sure it is the flower is blue. </p></strong>
+
+						<br> 
+
+
+						</div>
+					</div>
+
+					
+
+				</div>
+
+			</div>
+
+			<div class="jumbotron">
+				<h3> Enough talk! Let's run the Neural Network! </h3>
+
+				<p id="mystery_flower_repeat"> </p> 
+
+				<p id="nn_pred1"> </p>
+
+				<h6> It made the prediction! Each time it runs there will be a slightly different answer (the code initially sets the w1, w2, and b paramters to an RNG) but the prediction is hovering somewhere between .02 and .035. That means the NN thinks the mystery flower is blue!</h6>
+				<br>
+
+				<h6> Lets make some more predictions! </h6>
+				<br>
+
+				<p id="mystery_flower2"> </p>
+				<p id="nn_pred2"> </p>
+
+				<br>
+
+				<p id="mystery_flower3"> </p>
+				<p id="nn_pred3"> </p>
+
+				<br>
+
+				<p id="mystery_flower4"> </p>
+				<p id="nn_pred4"> </p>
+
+				<br>
+
+				<p id="mystery_flower5"> </p>
+				<p id="nn_pred5"> </p>
+
+
+
+
+			</div>	
+
+
+		</div>
+
+
+	
+
+
+	<script src="nn.js"></script>
+
+
+	<script>
+		result = main();
+		let html_data = "";
+		let html_mystery_flower = "";
+		let html_mystery_flower2 = "";
+		let html_mystery_flower3 = "";
+		let html_mystery_flower4 = "";
+		let html_mystery_flower5 = "";
+
+		for(let i=0; i<data.length; i++){
+			if(data[i][2]){
+
+				html_data += "<p> Petal length: " + data[i][0] + ", Petal Width: " + data[i][1] + ", Color of the flower: " + "<span style=\"color:red\">" 
+				+ data[i][2] + "</span>" + "</p>";
+			}
+			else{
+				html_data += "<p> Petal length: " + data[i][0] + ", Petal Width: " + data[i][1] + ", Color of the flower: " + "<span style=\"color:blue\">" 
+				+ data[i][2] + "</span>" + "</p>";
+			}	
+			 
+		}
+
+		nn_pred1 = "";
+		nn_pred2 = "";
+		nn_pred3 = "";
+		nn_pred4 = "";
+		nn_pred5 = "";
+
+
+		html_mystery_flower += "<p> Petal length: " + mystery_flower[0] + ", Petal Width: " + mystery_flower[1] + ", Color of the flower: ?" + "</p>";
+		html_mystery_flower2 += "<p> Petal length: " + mystery_flower2[0] + ", Petal Width: " + mystery_flower2[1] + ", Color of the flower: ?" + "</p>";
+		html_mystery_flower3 += "<p> Petal length: " + mystery_flower3[0] + ", Petal Width: " + mystery_flower3[1] + ", Color of the flower: ?" + "</p>";
+		html_mystery_flower4 += "<p> Petal length: " + mystery_flower4[0] + ", Petal Width: " + mystery_flower4[1] + ", Color of the flower: ?" + "</p>";
+		html_mystery_flower5 += "<p> Petal length: " + mystery_flower5[0] + ", Petal Width: " + mystery_flower5[1] + ", Color of the flower: ?" + "</p>";
+
+		document.getElementById("data").innerHTML = html_data;
+		document.getElementById("mystery_flower").innerHTML = html_mystery_flower;
+		document.getElementById("mystery_flower_repeat").innerHTML = html_mystery_flower;
+		document.getElementById("mystery_flower2").innerHTML = html_mystery_flower2;
+		document.getElementById("mystery_flower3").innerHTML = html_mystery_flower3;
+		document.getElementById("mystery_flower4").innerHTML = html_mystery_flower4;
+		document.getElementById("mystery_flower5").innerHTML = html_mystery_flower5;
+
+		//first pred
+		if(result[3] < .5){
+			nn_pred1 += "<p>" + "<span style=\"color:blue\">" + result[3] + "</span>" + "</p>";
+		}
+		else if (result[3] > .5){
+			nn_pred1 += "<p>" + "<span style=\"color:red\">" + result[3] + "</span>" + "</p>";
+		}
+		else{
+			nn_pred1 += "<p>" + result[3] + "</p>";
+		}
+
+		document.getElementById("nn_pred1").innerHTML = nn_pred1;
+
+		//second pred
+		if(result[4] < .5){
+			nn_pred2 += "<p>" + "<span style=\"color:blue\">" + result[4] + "</span>" + "</p>";
+		}
+		else if (result[4] > .5){
+			nn_pred2 += "<p>" + "<span style=\"color:red\">" + result[4] + "</span>" + "</p>";
+		}
+		else{
+			nn_pred2 += "<p>" + result[4] + "</p>";
+		}
+
+
+		document.getElementById("nn_pred2").innerHTML = nn_pred2;
+
+
+		//third pred
+		if(result[5] < .5){
+			nn_pred3 += "<p>" + "<span style=\"color:blue\">" + result[5] + "</span>" + "</p>";
+		}
+		else if (result[4] > .5){
+			nn_pred3 += "<p>" + "<span style=\"color:red\">" + result[5] + "</span>" + "</p>";
+		}
+		else{
+			nn_pred3 += "<p>" + result[5] + "</p>";
+		}
+
+
+		document.getElementById("nn_pred3").innerHTML = nn_pred3;
+
+		//fourth pred
+		if(result[6] < .5){
+			nn_pred4 += "<p>" + "<span style=\"color:blue\">" + result[6] + "</span>" + "</p>";
+		}
+		else if (result[6] > .5){
+			nn_pred4 += "<p>" + "<span style=\"color:red\">" + result[6] + "</span>" + "</p>";
+		}
+		else{
+			nn_pred4 += "<p>" + result[6] + "</p>";
+		}
+
+
+		document.getElementById("nn_pred4").innerHTML = nn_pred4;
+
+
+		//fifth pred
+		if(result[7] < .5){
+			nn_pred5 += "<p>" + "<span style=\"color:blue\">" + result[7] + "</span>" + "</p>";
+		}
+		else if (result[7] > .5){
+			nn_pred5 += "<p>" + "<span style=\"color:red\">" + result[7] + "</span>" + "</p>";
+		}
+		else{
+			nn_pred5 += "<p>" + result[7] + "</p>";
+		}
+
+
+		document.getElementById("nn_pred5").innerHTML = nn_pred5;
+
+
+	</script>
+
+
+
+</body>
+
+
+</html>
