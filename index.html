@@ -91,14 +91,14 @@
 
 						<div class="col-sm-12"> 
 
-							<p> The neural network works much like a person's brain. Similar to how people resond to external stimuli and weigh their options in order to make a decision, the Neural Network takes in inputs and multiplies them by "weights" and adds a bias. </p>
+							<p> The neural network works much like a person's brain. Similar to how people respond to external stimuli and weigh their options in order to make a decision, the Neural Network takes in inputs and multiplies them by "weights" and adds a bias. </p>
 							<p>Consider an example: Your friend is considering going to the movie theater on a given day. In real life there are a great many number of variables to consider, but for this example there is only the genre and the time. </p>
 							<p> Your friend loves science fiction and prefers to go to the movies at 6pm. However, your friend would rather see a science fiction movie at 9pm than a romantic comedy at 6pm. </p>
-							<p> Therefore, your friend must value the genre more than the time...this make intuitive sense that some variables weigh more heavily when making a decision. </p>
+							<p> Therefore, your friend must value the genre more than the time...this makes intuitive sense that some variables weigh more heavily when making a decision. </p>
 							<p> The beauty of the NN algorithm is that it mimics human thinking by taking those inputs and multiplying them by a fraction, the higher fraction being the one with more "weight." </p>
 							<p> The equation is as follows: z = w1*x + w2*y + b </p>
 							<p> In order to standardize the output to scale, z goes into an activation function. The sigmoid function 1/(1+e^-x) will squish the output to a value between 0 and 1.</p>
-							<p> The result of the sigmoid function is the prediction. But what to do when the prediction is wrong? The squared error function! Otherwise known as cost = (pred-target)^2 </p>
+							<p> The result of the sigmoid function is the prediction. But what do we do when the prediction is wrong? The squared error function! Otherwise known as cost = (pred-target)^2 </p>
 							<p>If we want to get improve the prediction to get the cost (error) as close to zero as possible, we will need to take the derivative repeatedly. If we take the derivative, multiply it by our learning rate (.1) and subtract that from the original inputs in a loop, the slope will eventually hit zero!  </p>
 							<strong><p> Our data involves the classification of flowers, so the NN will output a number closer to 1 the more sure it is that the mystery flower is red, and a number closer to 0 the more sure it is the flower is blue. </p></strong>
 
@@ -116,6 +116,7 @@
 
 			<div class="jumbotron">
 				<h3> Enough talk! Let's run the Neural Network! </h3>
+				<hr>
 
 				<p id="mystery_flower_repeat"> </p> 
 
