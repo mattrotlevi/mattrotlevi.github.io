@@ -37,7 +37,7 @@
 					<div class="col-sm-7">
 						<h5> Hello World! This is a proof-of-concept project to implement a Neural Network entirely in vanilla Javascript. </h5>
 						<br>
-						<p> We will be taking data of flower petal's length in inches, width in inches, and color. With that information, and using our neural network, we will be able to classify the daunted ~mystery flower~ . </p>
+						<p> We will be taking data of flower petals' length in inches, width in inches, and color. With that information, and using our Neural Network, we will be able to classify the daunted ~mystery flower~ . </p>
 					</div>
 
 					<div class="col-sm-2">
@@ -91,11 +91,11 @@
 
 						<div class="col-sm-12"> 
 
-							<p> The neural network works much like a person's brain. Exactly how it was modeled. Taking in inputs, the model multiplies them by weights and adds a bias. </p>
+							<p> The neural network works much like a person's brain. Similar to how people resond to external stimuli and weigh their options in order to make a decision, the Neural Network takes in inputs and multiplies them by "weights" and adds a bias. </p>
 							<p>Consider an example: Your friend is considering going to the movie theater on a given day. In real life there are a great many number of variables to consider, but for this example there is only the genre and the time. </p>
-							<p> Your friend loves science fiction, and prefers to go to the movies at 6pm. However, your friend would rather see a science fiction movie at 9pm than a romcom at 6pm. </p>
-							<p> Therefore, your friend must value the genre more than the time...this make intuitive sense. </p>
-							<p> The beauty of the NN algorithm is that it mimics human thinking by taking those inputs and multiplying them by a fraction, the one with more weight a higher fraction. </p>
+							<p> Your friend loves science fiction and prefers to go to the movies at 6pm. However, your friend would rather see a science fiction movie at 9pm than a romantic comedy at 6pm. </p>
+							<p> Therefore, your friend must value the genre more than the time...this make intuitive sense that some variables weigh more heavily when making a decision. </p>
+							<p> The beauty of the NN algorithm is that it mimics human thinking by taking those inputs and multiplying them by a fraction, the higher fraction being the one with more "weight." </p>
 							<p> The equation is as follows: z = w1*x + w2*y + b </p>
 							<p> In order to standardize the output to scale, z goes into an activation function. The sigmoid function 1/(1+e^-x) will squish the output to a value between 0 and 1.</p>
 							<p> The result of the sigmoid function is the prediction. But what to do when the prediction is wrong? The squared error function! Otherwise known as cost = (pred-target)^2 </p>
@@ -124,7 +124,7 @@
 				<h6> It made the prediction! Each time it runs there will be a slightly different answer (the code initially sets the w1, w2, and b paramters to an RNG) but the prediction is hovering somewhere between .02 and .035. That means the NN thinks the mystery flower is blue!</h6>
 				<br>
 
-				<h6> Lets make some more predictions! </h6>
+				<h6> Let's make some more predictions! </h6>
 				<br>
 
 				<p id="mystery_flower2"> </p>
